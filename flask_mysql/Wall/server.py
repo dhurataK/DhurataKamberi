@@ -12,6 +12,11 @@ EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
 def index():
     return render_template('index.html')
 
+'''
+Login/Registration looks great.  However, in login, don't store more information than necessary about a user inside session, such as the password.  See my notes.
+Figuring out which comments belong to which messages is important for this assignment and I'm glad you figured out a way to determine that.  Along the same lines,
+storing hidden inputs for adding comments to messages was done perfectly!  Superb job!
+'''
 @app.route('/create_user',methods=['POST'])
 def create():
     # Collecting data from register form
@@ -109,7 +114,7 @@ def login():
         if user[0]:
             if bcrypt.check_password_hash(user[0]['password'], request.form['password']):
                 session['user_id'] = user[0]['id']
-                session['user'] = user[0]['first_name']
+                session['user'] = user[0]['first_name'] # Why save user as well as user_id?  I might just save user_id and their name.  IF you save the full user record, you're also pulling out the password! Be careful!
                 return redirect('/wall')
 	    flash('Email/Password combination not found!')
 	    return redirect('/')
@@ -181,6 +186,6 @@ def delete():
 @app.route('/logout')
 def logout():
     session.pop('user_id')
-    session.pop('user')
+    session.pop('user') #Don't forget, you saved session['user'] as well earlier!  So session.pop('user')
     return redirect('/')
 app.run(debug=True)

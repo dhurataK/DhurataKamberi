@@ -18,7 +18,8 @@
       <div class="message_container">
         {% for message in messages %}
           <strong><h3>{{ message.first_name }}
-            {{  message.last_name }} 
+            {{  message.last_name }}
+            {{  message.last_name }} {# I'm glad you have the message_id here, but I don't think you meant to print it #}
             {{message.created_at.strftime('%B %d, %Y')}}</h3>
           </strong>
           <p>{{message.message}} </p>
