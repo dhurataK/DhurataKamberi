@@ -1,0 +1,17 @@
+*{
+  font-family: sans-serif;
+}
+h1{
+  color: #2196f3;
+}
+form input {
+  display: block;
+  margin: 20px 0px;
+}
+#submit-btn{
+  background-color: #2196f3;
+  border: 1px solid #009688;
+  border-radius: 5px;
+  height: 30px;
+  color: white;
+}

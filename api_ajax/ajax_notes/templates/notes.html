@@ -1,0 +1,9 @@
+{% for note in notes: %}
+  <h4>{{ note.title }}</h4>
+  <textarea name="description" data-id="{{note.id}}" rows="8" cols="40">
+    {{ note.description }}
+  </textarea>
+  <form action="/notes/{{ note.id }}/delete" method="post" class="delete_note">
+    <input type="submit" value="Delete" id="submit-btn">
+  </form>
+{% endfor %}

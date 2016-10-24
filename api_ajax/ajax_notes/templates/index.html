@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css')}}" media="screen" title="no title">
+  <title>AJAX Notes</title>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+  <script>
+  function get_notes(){
+    $.ajax({
+      method: 'get',
+      url: '/notes',
+      dataType: 'html',
+      success: function(res){
+        $('#notes').html(res);
+      }
+    });
+  }
+  $(document).ready(function(){
+    get_notes()
+    $('body').on('submit','form', function(){
+      $.ajax({
+        method: 'post',
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        dataType: 'html',
+        success: function(res){
+          $('#notes').html(res);
+        }
+      });
+      return false;
+    })
+    $('#notes').on('focusout', 'textarea', function(){
+      $.ajax({
+        method: 'post',
+        url: '/notes/'+$(this).attr('data-id')+'/update',
+        data: {'description': $(this).val()},
+        dataType: 'json',
+        success: function(res){
+          console.log(res);
+        }
+      });
+    });
+  });
+  </script>
+</head>
+<body>
+  <h1>Ajax Notes</h1>
+  <hr>
+  <div id="notes">  </div>
+  <form action="/notes/create" method="post">
+    <input type="text" name="title" placeholder="Insert note title here...">
+    <input type="submit" value="Add Note" id="submit-btn">
+  </form>
+</body>
+</html>
