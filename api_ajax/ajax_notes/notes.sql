@@ -31,7 +31,7 @@ CREATE TABLE `notes` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `notes` (
 
 LOCK TABLES `notes` WRITE;
 /*!40000 ALTER TABLE `notes` DISABLE KEYS */;
-INSERT INTO `notes` VALUES (1,'AJAX','    It makes really really fast :)!\n  Yeah that\'s true','2016-10-24 09:26:22','2016-10-24 09:26:22'),(38,'Django','    Another frame-work :) !\n  Can\'t wait to lean it :D','2016-10-24 17:25:02','2016-10-24 17:25:02'),(39,'APIsss','    Application Programming Interface! Yaay!\n  ','2016-10-24 17:32:11','2016-10-24 17:32:11');
+INSERT INTO `notes` VALUES (1,'AJAX','It reloads the webpage  makes really really fast :)!','2016-10-24 09:26:22','2016-10-24 17:58:03'),(38,'Django','    Another frame-work :) !\n  Can\'t wait to lean it :D','2016-10-24 17:25:02','2016-10-24 17:25:02'),(39,'APIsss','    Application Programming Interface! Yaay!\n  ','2016-10-24 17:32:11','2016-10-24 17:32:11'),(40,'AJAX','Makes websites fasterr!','2016-10-24 17:47:27','2016-10-24 17:47:27');
 /*!40000 ALTER TABLE `notes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-24 17:42:30
+-- Dump completed on 2016-10-24 17:59:05
